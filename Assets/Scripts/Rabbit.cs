@@ -8,16 +8,21 @@ public class Rabbit : MonoBehaviour {
 	Rigidbody2D myBody = null;
 	bool isGrounded = false;
 	bool JumpActive = false;
+	bool isAlive = true;
 
 	float JumpTime = 0f;
 
 	public float MaxJumpTime = 2f;
 	public float JumpSpeed = 2f;
+
 	// Use this for initialization
 	private IEnumerator Respawn(){
 		yield return new WaitForSeconds (2f);
+		GetComponent<Animator> ().SetBool ("Die", false);
 		LevelController.current.onRabitDeath (GetComponent<Rabbit> ());
+		isAlive = true;
 	}
+
 	void Start () {
 		myBody = this.GetComponent<Rigidbody2D> ();
 		LevelController.current.setStartPosition (transform.position);
@@ -31,6 +36,7 @@ public class Rabbit : MonoBehaviour {
 			rabbitBig = true;
 		}
 	}
+
 	public void DecreaseSize(){
 		if(rabbitBig){
 			transform.localScale= new Vector3(1, 1, 0);
@@ -43,9 +49,13 @@ public class Rabbit : MonoBehaviour {
 	}
 	public void rabbitDie(){
 		GetComponent<Animator> ().SetBool ("Die", true);
+		isAlive = false;
 	}
 	void FixedUpdate () {
 		//[-1, 1]
+		if (isAlive == false) {
+			return;
+		}
 
 		float value = Input.GetAxis ("Horizontal");
 		if (Mathf.Abs (value) > 0) {
