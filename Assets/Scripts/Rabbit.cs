@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Rabbit : MonoBehaviour {
+
+	public static Rabbit current;
 	private bool rabbitBig=false;
 	public float speed = 2.0f;
 	Rigidbody2D myBody = null;
@@ -22,7 +24,10 @@ public class Rabbit : MonoBehaviour {
 		LevelController.current.onRabitDeath (GetComponent<Rabbit> ());
 		isAlive = true;
 	}
-
+	void Awake()
+	{
+		current = this;
+	}
 	void Start () {
 		myBody = this.GetComponent<Rigidbody2D> ();
 		LevelController.current.setStartPosition (transform.position);
@@ -44,12 +49,14 @@ public class Rabbit : MonoBehaviour {
 	}
 		else{
 			rabbitDie ();
-			StartCoroutine (Respawn ());
 		}
 	}
 	public void rabbitDie(){
-		GetComponent<Animator> ().SetBool ("Die", true);
-		isAlive = false;
+		if (isAlive) {
+			GetComponent<Animator> ().SetBool ("Die", true);
+			isAlive = false;
+			StartCoroutine (Respawn ());
+		}
 	}
 	void FixedUpdate () {
 		//[-1, 1]
