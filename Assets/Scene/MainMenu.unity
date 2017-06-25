@@ -1190,14 +1190,14 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 613
+  mWidth: 619
   mHeight: 120
   mDepth: 0
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 5.108333
+  aspectRatio: 5.1583333
   mType: 0
   mFillDirection: 4
   mFillAmount: 1
@@ -2066,6 +2066,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1634683789}
   - component: {fileID: 1634683790}
+  - component: {fileID: 1634683792}
+  - component: {fileID: 1634683791}
+  - component: {fileID: 1634683793}
   m_Layer: 5
   m_Name: Setting
   m_TagString: Untagged
@@ -2080,7 +2083,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1634683788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 307, y: -130, z: 0}
+  m_LocalPosition: {x: 310, y: -130, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1187098829}
@@ -2120,7 +2123,7 @@ MonoBehaviour:
   mHeight: 54
   mDepth: 2
   mMat: {fileID: 0}
-  autoResizeBoxCollider: 0
+  autoResizeBoxCollider: 1
   hideIfOffScreen: 0
   keepAspectRatio: 0
   aspectRatio: 1.0185186
@@ -2143,6 +2146,66 @@ MonoBehaviour:
   mFixedAspect: 1
   mPixelSize: 1
   nextSprite: {fileID: 0}
+--- !u!114 &1634683791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1634683788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fdca5042b1d12a4890ec1bd4f04290d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenTarget: {fileID: 1634683788}
+  hover: {r: 0.88235295, g: 0.78431374, b: 0.5882353, a: 1}
+  pressed: {r: 0.7176471, g: 0.6392157, b: 0.48235294, a: 1}
+  disabledColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  duration: 0.2
+  dragHighlight: 0
+  hoverSprite: 
+  pressedSprite: 
+  disabledSprite: 
+  hoverSprite2D: {fileID: 0}
+  pressedSprite2D: {fileID: 0}
+  disabledSprite2D: {fileID: 0}
+  pixelSnap: 0
+  onClick:
+  - mTarget: {fileID: 1634683792}
+    mMethodName: _onClick
+    mParameters: []
+    oneShot: 0
+--- !u!114 &1634683792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1634683788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093889b8fc76a0847b7a6ce9123435c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 1634683792}
+  signalOnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  settingPrefab: {fileID: 1452173684956962, guid: 224f320239f4eba40b8ef7dad92823eb,
+    type: 2}
+--- !u!65 &1634683793
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1634683788}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 53.23944, y: 53.239437, z: 0}
+  m_Center: {x: 0.0000009536743, y: -0.38028145, z: 0}
 --- !u!1 &1634971507
 GameObject:
   m_ObjectHideFlags: 0

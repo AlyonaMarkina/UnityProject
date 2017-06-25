@@ -1412,7 +1412,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 0cb3697f36327471bb44edce51ece5a8, type: 3}
   mFont: {fileID: 0}
-  mText: New Label
+  mText: 0000
   mFontSize: 50
   mFontStyle: 0
   mAlignment: 0
